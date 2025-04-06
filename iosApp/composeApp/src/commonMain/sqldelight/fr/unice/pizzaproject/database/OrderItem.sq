@@ -1,0 +1,21 @@
+CREATE TABLE OrderItem (
+    orderItemId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    orderId INTEGER NOT NULL,
+    pizzaId INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    extraCheese REAL NOT NULL DEFAULT 0,
+    FOREIGN KEY (orderId) REFERENCES OrderTable(orderId),
+    FOREIGN KEY (pizzaId) REFERENCES Pizza(id)
+);
+
+selectAllOrderItems:
+SELECT * FROM OrderItem;
+
+insertOrderItem:
+INSERT INTO OrderItem(orderId, pizzaId, quantity, extraCheese) VALUES (?, ?, ?, ?);
+
+deleteOrderItem:
+DELETE FROM OrderItem WHERE orderItemId = ?;
+
+selectOrderItemsByOrderId:
+SELECT * FROM OrderItem WHERE orderId = ?;

@@ -1,0 +1,21 @@
+CREATE TABLE OrderTable  (
+    orderId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    orderDate INTEGER NOT NULL,  -- Stocker le timestamp en tant qu'entier
+    totalAmount REAL NOT NULL,
+    status TEXT NOT NULL  -- Statut de la commande
+);
+
+selectAllOrders:
+SELECT * FROM OrderTable ;
+
+insertOrder:
+INSERT INTO OrderTable (orderDate, totalAmount, status) VALUES (?, ?, ?);
+
+deleteOrderById:
+DELETE FROM OrderTable  WHERE orderId = ?;
+
+selectOrderById:
+SELECT * FROM OrderTable  WHERE orderId = ?;
+
+getLastInsertedOrderId:
+SELECT last_insert_rowid() AS orderId;

@@ -1,0 +1,20 @@
+CREATE TABLE Pizza (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    imageRes TEXT NOT NULL,
+    ingredients TEXT NOT NULL,  -- Stocker la liste sous forme de chaîne de caractères JSON
+    price REAL NOT NULL
+);
+
+selectAllPizzas:
+SELECT * FROM Pizza;
+
+insertPizza:
+INSERT INTO Pizza(id, name, imageRes, ingredients, price) VALUES (?, ?, ?, ?, ?);
+
+deletePizzaById:
+DELETE FROM Pizza WHERE id = ?;
+
+selectPizzaById:
+SELECT * FROM Pizza WHERE id = ?;
+
